@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2023 a las 22:20:56
+-- Tiempo de generación: 12-10-2023 a las 00:57:42
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,29 +18,52 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `agencia_viajes`
+-- Base de datos: `agencia_viaje`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedidos`
+-- Estructura de tabla para la tabla `ciudades`
 --
 
-CREATE TABLE `pedidos` (
-  `id_usuario` int(11) NOT NULL,
-  `fecha_solicitud` date NOT NULL,
-  `estado_de_solicitud` tinyint(1) NOT NULL DEFAULT 0
+CREATE TABLE `ciudades` (
+  `id_ciudad` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `info_ciudad` text NOT NULL,
+  `id_estacion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `pedidos`
+-- Volcado de datos para la tabla `ciudades`
 --
 
-INSERT INTO `pedidos` (`id_usuario`, `fecha_solicitud`, `estado_de_solicitud`) VALUES
-(1, '2023-09-23', 1),
-(2, '2023-09-23', 0),
-(4, '2023-09-23', 0);
+INSERT INTO `ciudades` (`id_ciudad`, `nombre`, `info_ciudad`, `id_estacion`) VALUES
+(11, 'Ushuaia', 'Ushuaia, la ciudad del fin del mundo', 2),
+(12, 'Mar del plata', 'Gran ciudad ', 1),
+(13, 'Mendoza', 'La cordillera, los viñedos y los árboles de hermosos y cálidos colores otoñales formando paisajes y escenarios imponentes, y las bodegas iniciando el proceso de elaboración del vino del año, conforman el panorama ideal.', 3),
+(14, 'Cordoba', 'Córdoba se destaca por mezclar las costumbres criollas con la tradición de los inmigrantes alemanes que se instalaron en dicha localidad entre finales del siglo XIX y principios del XX.', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estaciones`
+--
+
+CREATE TABLE `estaciones` (
+  `id_estacion` int(11) NOT NULL,
+  `nombre_estacion` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estaciones`
+--
+
+INSERT INTO `estaciones` (`id_estacion`, `nombre_estacion`) VALUES
+(1, 'Verano'),
+(2, 'Invierno'),
+(3, 'Otoño'),
+(4, 'Primavera');
 
 -- --------------------------------------------------------
 
@@ -49,59 +72,52 @@ INSERT INTO `pedidos` (`id_usuario`, `fecha_solicitud`, `estado_de_solicitud`) V
 --
 
 CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `apellido` varchar(30) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `localidad` varchar(50) NOT NULL,
-  `destino` varchar(50) NOT NULL,
-  `solicitud_del_usuario` text NOT NULL
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `localidad`, `destino`, `solicitud_del_usuario`) VALUES
-(1, 'Geronimo', 'Moroni', 'Geromoroniii@hotmail.com', 'Tandil', 'Mar del Plata', ''),
-(2, 'Juan', 'Gonzales', 'juan@gmail.com', 'Rosario', 'Brasil', ''),
-(4, 'Geronimo', 'Moroni', 'geromoroniii@hotmail.com', 'bolivar', 'tandil', 'Me gustaria viajar a tandil, quisiera saber mas sobre el destino.');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `pedidos`
+-- Indices de la tabla `ciudades`
 --
-ALTER TABLE `pedidos`
-  ADD KEY `id_usuario` (`id_usuario`);
+ALTER TABLE `ciudades`
+  ADD PRIMARY KEY (`id_ciudad`),
+  ADD KEY `id_estacion` (`id_estacion`);
 
 --
--- Indices de la tabla `usuario`
+-- Indices de la tabla `estaciones`
 --
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `estaciones`
+  ADD PRIMARY KEY (`id_estacion`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT de la tabla `ciudades`
 --
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `ciudades`
+  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `estaciones`
+--
+ALTER TABLE `estaciones`
+  MODIFY `id_estacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `pedidos`
+-- Filtros para la tabla `ciudades`
 --
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+ALTER TABLE `ciudades`
+  ADD CONSTRAINT `id_estacion` FOREIGN KEY (`id_estacion`) REFERENCES `estaciones` (`id_estacion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
