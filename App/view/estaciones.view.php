@@ -4,16 +4,20 @@ class EstacionView{
 
     function showEstaciones($estaciones){
 
+      include "templates/header.php";
 
+      echo "<ul class='list-group mt-5'>";
       foreach($estaciones as $estacion){
-        include "templates/header.php"
-
-        echo"<li>";
+        echo "<li class='list-group-item'>
         $estacion->nombre_estacion
-        echo"</li>";
-        include "templates/footer.php"
+         </li>";
 
+      
       }
+      echo "</ul>";
+
+      include "templates/footer.php";
+
 
     }
    

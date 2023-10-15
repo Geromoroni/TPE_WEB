@@ -1,18 +1,23 @@
 <?php
+include_once "./App/controller/estaciones.controller.php";
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-
-// leo el parametro accion
-$action = 'home'; // accion por defecto
+$action = 'listar'; // accion por defecto
 if (!empty($_GET['action'])) {
-    $action = $_GET['action'];  // action => about/juan
+    $action = $_GET['action'];
 }
-
-// parsea la accion Ej: about/juan --> ['about', 'juan']
+// parsea la accion 
+echo $action;
 $params = explode('/', $action); // genera un arreglo
-    
+
 switch ($params[0]) {
- 
-
-
+    case 'listar':
+        $controller = new EstacionController();
+        $controller->showEstaciones();
+        break;
+    default:
+        //header("Location: listar");
+        break;
 }
+
+?>

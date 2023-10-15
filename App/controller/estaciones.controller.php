@@ -1,6 +1,6 @@
 <?php 
 include_once "App/model/estaciones.model.php";
-include_once "App/view/view.model.php";
+include_once "App/view/estaciones.view.php";
 
 class EstacionController{
     private $model;
@@ -9,16 +9,16 @@ class EstacionController{
 
      function __construct(){
     $this->model= new EstacionModel();
-    $this->$view= new EstacionView();
+    $this->view= new EstacionView();
 
     }
 
     function showEstaciones(){
         //obtiene las tareas del model
-        $tasks = $this->model->getEstaciones();
+        $estaciones = $this->model->getEstaciones();
 
 
         //actualizo la vista
-        $this->view->showEstaciones();
+        $this->view->showEstaciones($estaciones);
     }
 }
