@@ -1,10 +1,11 @@
 <?php
 include_once "./App/controller/estaciones.controller.php";
+include_once "./App/controller/ciudades.controller.php";
 include_once "./App/controller/auth.controller.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-$action = 'login'; // accion por defecto
+$action = 'listar'; // accion por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -27,25 +28,7 @@ switch ($params[0]) {
         $controller = new EstacionController();
         $controller->removeEstacion($params[1]);
             break;
-
-
-    case 'editar':
-            $controller = new EstacionController();
-            $controller->modifyEstacion($params[1]);
-            break;
-
-    case 'login':
-            $controller = new AuthController();
-            $controller->showLogin(); 
-            break;
-
-    case 'auth':
-            $controller = new AuthController();
-            $controller->auth();
-             break;
-        
-
-                                      
+         
     default:
         header("Location: listar");
         break;
