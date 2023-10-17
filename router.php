@@ -1,6 +1,8 @@
 <?php
 include_once "./App/controller/estaciones.controller.php";
 include_once "./App/controller/ciudades.controller.php";
+include_once "./App/controller/auth.controller.php";
+
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'listar'; // accion por defecto

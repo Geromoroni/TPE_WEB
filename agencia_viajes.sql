@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2023 a las 00:57:42
+-- Tiempo de generación: 17-10-2023 a las 22:32:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -63,7 +63,8 @@ INSERT INTO `estaciones` (`id_estacion`, `nombre_estacion`) VALUES
 (1, 'Verano'),
 (2, 'Invierno'),
 (3, 'Otoño'),
-(4, 'Primavera');
+(4, 'Primavera'),
+(35, 'dada');
 
 -- --------------------------------------------------------
 
@@ -72,9 +73,17 @@ INSERT INTO `estaciones` (`id_estacion`, `nombre_estacion`) VALUES
 --
 
 CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL
+  `password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
+(1, 'webadmin@gmail.com', 'webadmin');
 
 --
 -- Índices para tablas volcadas
@@ -94,6 +103,12 @@ ALTER TABLE `estaciones`
   ADD PRIMARY KEY (`id_estacion`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -101,13 +116,19 @@ ALTER TABLE `estaciones`
 -- AUTO_INCREMENT de la tabla `ciudades`
 --
 ALTER TABLE `ciudades`
-  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `estaciones`
 --
 ALTER TABLE `estaciones`
-  MODIFY `id_estacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_estacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

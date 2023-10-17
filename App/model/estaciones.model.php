@@ -34,7 +34,14 @@ class EstacionModel{
         $query = $this->db->prepare('DELETE  FROM estaciones WHERE  id_estacion = ?');
         $query->execute([$id_estacion]);
     }
-    
+
+
+    function updateEstacion($nombre_estacion){
+        $query = $this->db->prepare('UPDATE estaciones SET nombre_estacion WHERE id_estacion = ?');
+        $query->execute([$nombre_estacion]);
+        return $query;
+      
+    }
 
 
   
