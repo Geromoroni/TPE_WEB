@@ -28,6 +28,16 @@ switch ($params[0]) {
         $controller = new EstacionController();
         $controller->removeEstacion($params[1]);
             break;
+    
+    case 'ciudades':
+        $controller = new CiudadController();
+        $controller-> showCiudades();
+        break;
+
+    case 'infoCiudad':
+        $controller = new CiudadController();
+        $controller-> showInfoCiudades();
+        break;
          
     default:
         header("Location: listar");
