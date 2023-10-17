@@ -8,12 +8,18 @@ class EstacionController{
 
 
      function __construct(){
+
     $this->model= new EstacionModel();
     $this->view= new EstacionView();
+
+    //verifico si el usuario esta logeado
+    $this->checkLogged();
+
 
     }
 
     function showEstaciones(){
+        
         //obtiene las estaciones del model
         $estaciones = $this->model->getEstaciones();
     
@@ -46,17 +52,39 @@ class EstacionController{
 
     function removeEstacion($id_estacion) {
 
+             
+
             $this->model->deleteEstacion($id_estacion);
             header('Location: ' . BASE_URL);
         
 
-            
-        
-
-            
     }
 
+    function modifyEstacion($nombre_estacion){
+         // obtengo los datos del usuario
+         $nombre_estacion = $_POST['nombre_estacion'];
+        
+
+         // validaciones
+         if (empty($nombre_estacion) ) {
+            echo "error";
+         }
+ 
+         $id = $this->model->updateEstacion($nombre_estacion);
+         if ($id) {
+             header('Location: ' . BASE_URL);
+         } else {
+             $this->view->showError("Error al insertar la tarea");
+         }
+    }
+ //barrera de seguridad para administrador logeado
+    function checkLogged(){
+        session_start();
+        if(!isset($_SESSION['ID_USER']))   {
+            header("Location: " . BASE_URL . "login");
+            die();
+        }
 
 
-
+}
 }

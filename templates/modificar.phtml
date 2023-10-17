@@ -1,0 +1,23 @@
+<?php
+require 'templates/header.php';
+
+?>
+<?php
+foreach($estaciones as $estacion){
+    ?>
+<form action="editar/<?php echo $estacion->id_estacion ?>" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Nombre nuevo de la estacion </label>
+                <input name="nombre_estacion" type="text" placeholder="<?php echo $estacion->nombre_estacion ?>" class="form-control">
+            </div>
+        </div>
+<?php
+}   ?>
+        
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Modificar</button>
+</form>
+<?php
+require 'templates/footer.phtml';

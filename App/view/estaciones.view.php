@@ -15,6 +15,11 @@ class EstacionView{
       require 'templates/error.phtml';
   }
 
+  public function showEdicion($estaciones, $id_estacion){
+
+    require "templates/modificar.phtml";
+  }
+
     
    
     

@@ -24,7 +24,7 @@
                     <a class="nav-link" aria-current="page" href="home">Noticias</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about">Nosotros</a>
+                    <a class="nav-link" href="login">Login</a>
                   </li>
                   
                 </ul>
