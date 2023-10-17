@@ -1,0 +1,26 @@
+<?php require "templates/header.php"?>
+<?php require "templates/form.ciudades.phtml"?>
+
+
+<div class="container text-center">
+  <div class="row align-items-start">
+  <?php foreach($ciudades as $ciudad): ?>
+    <div class="col">
+    <a><?= $ciudad->nombre ?> </a>
+
+    <div class="actions">
+            <a href="infoCiudad/<?= $ciudad->nombre?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
+            <a href="eliminar/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+        </div>
+
+
+    </div>
+
+  <?php endforeach ?>
+
+  </div>
+</div>
+  
+
+
+<?php  require "templates/footer.php"; 

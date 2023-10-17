@@ -21,10 +21,10 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="home">Noticias</a>
+                    <a class="nav-link" aria-current="page" href="ciudades">Ciudades</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about">Nosotros</a>
+                    <a class="nav-link" href="listar">Estaciones</a>
                   </li>
                   
                 </ul>

@@ -1,5 +1,6 @@
 <?php
 include_once "./App/controller/estaciones.controller.php";
+include_once "./App/controller/ciudades.controller.php";
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'listar'; // accion por defecto
@@ -25,6 +26,16 @@ switch ($params[0]) {
         $controller = new EstacionController();
         $controller->removeEstacion($params[1]);
             break;
+    
+    case 'ciudades':
+        $controller = new CiudadController();
+        $controller-> showCiudades();
+        break;
+
+    case 'infoCiudad':
+        $controller = new CiudadController();
+        $controller-> showInfoCiudades();
+        break;
          
     default:
         header("Location: listar");
