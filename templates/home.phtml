@@ -1,0 +1,25 @@
+<?php require "templates/header.php"?>;
+<?php require "templates/form.estaciones.phtml"?>
+
+
+<div class="container text-center">
+  <div class="row align-items-start">
+  <?php foreach($estaciones as $estacion): ?>
+    <div class="col">
+    <a><?= $estacion->nombre_estacion ?> </a>
+
+    <div class="actions">
+            <a href="eliminar/<?= $estacion->id_estacion?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+        </div>
+
+
+    </div>
+
+  <?php endforeach ?>
+
+  </div>
+</div>
+  
+
+
+<?php  require "templates/footer.php"; 

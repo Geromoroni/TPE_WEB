@@ -7,16 +7,27 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 // parsea la accion 
-echo $action;
+
 $params = explode('/', $action); // genera un arreglo
 
 switch ($params[0]) {
     case 'listar':
         $controller = new EstacionController();
         $controller->showEstaciones();
-        break;
+        break; 
+
+    case 'insertar':
+        $controller = new EstacionController();
+        $controller->addEstacion();
+         break;    
+
+     case 'eliminar':
+        $controller = new EstacionController();
+        $controller->removeEstacion($params[1]);
+            break;
+         
     default:
-        //header("Location: listar");
+        header("Location: listar");
         break;
 }
 

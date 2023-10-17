@@ -3,23 +3,19 @@
 class EstacionView{
 
     function showEstaciones($estaciones){
-
-      include "templates/header.php";
-
-      echo "<ul class='list-group mt-5'>";
-      foreach($estaciones as $estacion){
-        echo "<li class='list-group-item'>
-        $estacion->nombre_estacion
-         </li>";
-
+      $count = count($estaciones);
+      require "templates/home.phtml";
       
-      }
-      echo "</ul>";
-
-      include "templates/footer.php";
 
 
     }
+
+
+    public function showError($error) {
+      require 'templates/error.phtml';
+  }
+
+    
    
     
 
