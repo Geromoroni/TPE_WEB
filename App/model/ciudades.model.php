@@ -22,9 +22,9 @@ class CiudadModel{
 
     }
 
-    function getInfoCiudades() {
-        $query = $this->db->prepare('SELECT * FROM ciudades WHERE id_ciudad = 11');
-        $query->execute();
+    function getInfoCiudades($id_ciudad) {
+        $query = $this->db->prepare('SELECT * FROM ciudades WHERE `ciudades`.`id_ciudad` = ?');
+        $query->execute([$id_ciudad]);
 
         // $ciudades es un arreglo de tareas
         $ciudades = $query->fetchAll(PDO::FETCH_OBJ);
@@ -33,22 +33,17 @@ class CiudadModel{
 
     }
     
-    function addCiudad($nombre_ciudad) {
-        $query = $this->db->prepare('INSERT INTO ciudades (nombre) VALUES(?)');
-        $query->execute([$nombre_ciudad]);
+    function addCiudad($nombre_ciudad, $info_ciudad, $id_estacion) {
+        $query = $this->db->prepare('INSERT INTO ciudades (nombre, info_ciudad, id_estacion) VALUES (?, ?, ?)');
+        $query->execute(array($nombre_ciudad, $info_ciudad, $id_estacion));
 
         return $this->db->lastInsertId();
     }
 
 
     function deleteCiudad($id_ciudad) {
-        $query = $this->db->prepare('DELETE  FROM ciudades WHERE  id_ciudad = ?');
+        $query = $this->db->prepare('DELETE FROM `ciudades` WHERE `ciudades`.`id_ciudad` = ?');
         $query->execute([$id_ciudad]);
     }
     
-
-
-  
-
-
 }

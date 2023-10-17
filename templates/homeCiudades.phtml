@@ -6,11 +6,11 @@
   <div class="row align-items-start">
   <?php foreach($ciudades as $ciudad): ?>
     <div class="col">
-    <a><?= $ciudad->nombre ?> </a>
+    <a><?= $ciudad->nombre?>(<?=$ciudad->id_estacion?>)</a>
 
     <div class="actions">
-            <a href="infoCiudad/<?= $ciudad->nombre?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
-            <a href="eliminar/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+            <a href="infoCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
+            <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
         </div>
 
 
