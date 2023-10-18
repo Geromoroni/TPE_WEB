@@ -5,7 +5,7 @@ include_once "./App/controller/auth.controller.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-$action = 'listar'; // accion por defecto
+$action = 'login'; // accion por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -64,6 +64,7 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller-> auth();
         break;
+<<<<<<< HEAD
 
     case 'logout':
         $controller = new AuthController();
@@ -71,8 +72,16 @@ switch ($params[0]) {
         break;  
 
 
+=======
+    
+    case 'editar':
+        $controller = new EstacionController();
+        $controller->modifyEstacion($params[1]);
+        break;
+        
+>>>>>>> 8c3b8c9cab1383070bb9459076d9f6538e652985
     default:
-        header("Location: listar");
+        header("Location: login");
         break;
 }
 

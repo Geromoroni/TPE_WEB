@@ -1,0 +1,42 @@
+<?php
+require 'templates/header.php';
+
+?>
+<?php
+foreach($ciudades as $ciudad){
+    ?>
+<form action="editar/<?php echo $ciudad->id_ciudad ?>" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Nombre nuevo de la ciudad </label>
+                <input name="nombre" type="text" placeholder="<?php echo $ciudad->nombre_ciudad ?>" class="form-control">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Informacion acerca de la ciudad </label>
+                <input name="info_ciudad" type="text" placeholder="<?php echo $ciudad->info_ciudad ?>" class="form-control">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Ingrese la estacion preferida </label>
+                <select required name="id_estacion" class="form-control">
+                    <option value="1">Verano</option>
+                    <option value="2">Invierno</option>
+                    <option value="3">Otoño</option>
+                    <option value="4">Primavera</option>
+                </select>
+            </div>
+        </div>
+<?php
+}   ?>
+        
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Modificar</button>
+</form>
+<?php
+require 'templates/footer.phtml';

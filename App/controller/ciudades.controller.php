@@ -48,6 +48,28 @@ class CiudadController{
             $this->view->showError("Error al insertar la tarea");
         }
     }
+
+    public function updateCiudad($id) {
+
+        // obtengo los datos del usuario
+        $nombre_ciudad = $_POST['nombre'];
+        $info_ciudad = $_POST['info_ciudad'];
+        $id_estacion = $_POST['id_estacion'];
+        
+
+        // valido
+        if (empty($nombre_ciudad) || empty($info_ciudad) || empty($id_estacion) ) {
+            $this->view->showError("Debe completar todos los campos");
+            return;
+        }
+
+        $id = $this->model->addCiudad($nombre_ciudad, $info_ciudad, $id_estacion);
+        if ($id) {
+            header('Location: ' . BASE_URL . "ciudades");
+        } else {
+            $this->view->showError("Error al insertar la tarea");
+        }
+    }
     
     
     

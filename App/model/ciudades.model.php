@@ -46,9 +46,16 @@ class CiudadModel{
         $query->execute([$id_ciudad]);
     }
 
+<<<<<<< HEAD
     function updateCiudad($id_ciudad) {    
         $query = $this->db->prepare('UPDATE ciudades SET finalizo_ciudad = 1 WHERE id = ?');
         $query->execute([$id_ciudad]);
+=======
+    function updateCiudad($nombre_ciudad, $info_ciudad, $id_estacion){
+        $query = $this->db->prepare('UPDATE ciudades SET nombre = ?, info_ciudad = ?, id_estacion - ? WHERE id_ciudad = ?,');
+        $query->execute([$nombre_ciudad, $info_ciudad, $id_estacion]);
+        return $query;
+>>>>>>> 8c3b8c9cab1383070bb9459076d9f6538e652985
     }
     
 }

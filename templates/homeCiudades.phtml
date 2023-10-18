@@ -10,13 +10,17 @@
 
     <div class="actions mt-2">
             <a href="infoCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
-            <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-secondary ml-auto'>Borrar</a>
+            <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+            <a href="editar/" type="button" class='btn btn-secondary ml-auto mt-2'>Editar</a>
         </div>
+<<<<<<< HEAD
         <?php if(!$ciudad->finalizo_ciudad): ?> 
                 <a href="finalizar/<?= $ciudad->id_ciudad ?>" type="button" class='btn btn-success ml-auto'>Finalizar</a> 
             <?php endif ?>
 
 
+=======
+>>>>>>> 8c3b8c9cab1383070bb9459076d9f6538e652985
     </div>
 
   <?php endforeach ?>

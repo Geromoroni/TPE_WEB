@@ -1,10 +1,9 @@
 <?php require 'templates/header.phtml'?>
 
 <?php 
-foreach ($ciudades as $ciudad){
-    echo $ciudad-> nombre;
-    echo $ciudad-> info_ciudad;
-}
-?>
+foreach($ciudades as $ciudad){?>
+    <h1><?=$ciudad->nombre?></h1>
+    <h3><?=$ciudad->info_ciudad?></h3>
+<?php }?>
 
 <?php require 'templates/footer.phtml'?>
