@@ -1,4 +1,4 @@
-<?php require "templates/header.php"?>
+<?php require "templates/header.phtml"?>
 <?php require "templates/form.ciudades.phtml"?>
 
 
@@ -8,9 +8,9 @@
     <div class="col">
     <a><?= $ciudad->nombre?>(<?=$ciudad->id_estacion?>)</a>
 
-    <div class="actions">
+    <div class="actions mt-2">
             <a href="infoCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
-            <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+            <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-secondary ml-auto'>Borrar</a>
         </div>
 
 
@@ -23,4 +23,4 @@
   
 
 
-<?php  require "templates/footer.php"; 
+<?php  require "templates/footer.phtml"; 

@@ -10,13 +10,15 @@ class CiudadController{
      function __construct(){
     $this->model= new CiudadModel();
     $this->view= new CiudadView();
+     //verifico si el usuario esta logeado
+     $this->checkLogged();  
     
-    //verifico si el usuario esta logeado
-    $this->checkLogged();
 
     }
 
     function showCiudades(){
+
+
         //obtiene las ciudades del model
         $ciudades = $this->model->getCiudades();
     

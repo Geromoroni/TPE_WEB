@@ -1,4 +1,4 @@
-<?php require "templates/header.php"?>
+<?php require "templates/header.phtml"?>
 <?php require "templates/form.estaciones.phtml"?>
 
 
@@ -8,11 +8,9 @@
     <div class="col">
     <a><?= $estacion->nombre_estacion ?> </a>
 
-    <div class="actions">
+    <div class="actions mt-2">
             <a href="eliminar/<?= $estacion->id_estacion?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
-        </div>
-        <div class="actions">
-            <a href="editar/" type="button" class='btn btn-secondary ml-auto mt-2'>Editar</a>
+            <a href="editar/" type="button" class='btn btn-secondary ml-auto '>Editar</a>
         </div>
 
 
@@ -25,4 +23,4 @@
   
 
 
-<?php  require "templates/footer.php"; 
+<?php  require "templates/footer.phtml"; 
