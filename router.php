@@ -38,6 +38,12 @@ switch ($params[0]) {
         $controller = new CiudadController();
         $controller->removeCiudad($params[1]);
             break;
+
+    case 'finalizar':
+        $controller = new EstacionController();
+        $controller->finishEstacion($params[1]);
+            break;
+        
     
     case 'ciudades':
         $controller = new CiudadController();
@@ -58,6 +64,13 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller-> auth();
         break;
+
+    case 'logout':
+        $controller = new AuthController();
+        $controller-> logout();
+        break;  
+
+
     default:
         header("Location: listar");
         break;

@@ -10,8 +10,11 @@
 
     <div class="actions mt-2">
             <a href="eliminar/<?= $estacion->id_estacion?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
-            <a href="editar/" type="button" class='btn btn-secondary ml-auto '>Editar</a>
         </div>
+        <?php if(!$estacion->finalizo_estacion): ?> 
+                <a href="finalizar/<?= $estacion->id_estacion ?>" type="button" class='btn btn-success ml-auto'>Finalizar</a> 
+            <?php endif ?>
+
 
 
     </div>

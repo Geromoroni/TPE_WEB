@@ -12,6 +12,9 @@
             <a href="infoCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-danger ml-auto'>Ver mas Info</a>
             <a href="eliminarCiudad/<?= $ciudad->id_ciudad?>" type="button" class='btn btn-secondary ml-auto'>Borrar</a>
         </div>
+        <?php if(!$ciudad->finalizo_ciudad): ?> 
+                <a href="finalizar/<?= $ciudad->id_ciudad ?>" type="button" class='btn btn-success ml-auto'>Finalizar</a> 
+            <?php endif ?>
 
 
     </div>

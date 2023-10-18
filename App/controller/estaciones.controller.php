@@ -60,23 +60,11 @@ class EstacionController{
 
     }
 
-    function modifyEstacion($nombre_estacion){
-         // obtengo los datos del usuario
-         $nombre_estacion = $_POST['nombre_estacion'];
-        
-
-         // validaciones
-         if (empty($nombre_estacion) ) {
-            echo "error";
-         }
- 
-         $id = $this->model->updateEstacion($nombre_estacion);
-         if ($id) {
-             header('Location: ' . BASE_URL);
-         } else {
-             $this->view->showError("Error al insertar la tarea");
-         }
+    function finishEstacion($id_estacion) {
+        $this->model->updateEstacion($id_estacion);
+        header('Location: ' . BASE_URL);
     }
+
  //barrera de seguridad para administrador logeado
     function checkLogged(){
         session_start();

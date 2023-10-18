@@ -37,13 +37,11 @@ class EstacionModel{
     }
 
 
-    function updateEstacion($nombre_estacion){
-        $query = $this->db->prepare('UPDATE estaciones SET nombre_estacion WHERE id_estacion = ?');
-        $query->execute([$nombre_estacion]);
-        return $query;
-      
+    function updateEstacion($id_estacion) {    
+        $query = $this->db->prepare('UPDATE estacion SET finalizo_estacion = 1 WHERE id = ?');
+        $query->execute([$id_estacion]);
     }
-
+    
 
   
 
