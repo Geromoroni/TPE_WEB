@@ -5,7 +5,7 @@ include_once "./App/controller/auth.controller.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-$action = 'listar'; // accion por defecto
+$action = 'login'; // accion por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -48,9 +48,19 @@ switch ($params[0]) {
         $controller = new CiudadController();
         $controller-> showInfoCiudades($params[1]);
         break;
-         
+    
+     case 'login':
+        $controller = new AuthController();
+        $controller-> showLogin();
+        break;
+
+    case 'editar':
+        $controller = new EstacionController();
+        $controller->modifyEstacion($params[1]);
+        break;
+        
     default:
-        header("Location: listar");
+        header("Location: login");
         break;
 }
 

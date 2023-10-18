@@ -45,5 +45,11 @@ class CiudadModel{
         $query = $this->db->prepare('DELETE FROM `ciudades` WHERE `ciudades`.`id_ciudad` = ?');
         $query->execute([$id_ciudad]);
     }
+
+    function updateCiudad($nombre_ciudad, $info_ciudad, $id_estacion){
+        $query = $this->db->prepare('UPDATE ciudades SET nombre = ?, info_ciudad = ?, id_estacion - ? WHERE id_ciudad = ?,');
+        $query->execute([$nombre_ciudad, $info_ciudad, $id_estacion]);
+        return $query;
+    }
     
 }

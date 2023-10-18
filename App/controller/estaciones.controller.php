@@ -13,7 +13,7 @@ class EstacionController{
     $this->view= new EstacionView();
 
     //verifico si el usuario esta logeado
-    $this->checkLogged();
+    //$this->checkLogged();
 
 
     }
@@ -51,9 +51,6 @@ class EstacionController{
 
 
     function removeEstacion($id_estacion) {
-
-             
-
             $this->model->deleteEstacion($id_estacion);
             header('Location: ' . BASE_URL);
         
@@ -78,7 +75,7 @@ class EstacionController{
          }
     }
  //barrera de seguridad para administrador logeado
-    function checkLogged(){
+   /* function checkLogged(){
         session_start();
         if(!isset($_SESSION['ID_USER']))   {
             header("Location: " . BASE_URL . "login");
@@ -86,5 +83,5 @@ class EstacionController{
         }
 
 
-}
+}*/
 }
