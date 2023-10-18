@@ -10,12 +10,15 @@ class CiudadController{
      function __construct(){
     $this->model= new CiudadModel();
     $this->view= new CiudadView();
-
-    //$this->checkLogged();
+     //verifico si el usuario esta logeado
+     $this->checkLogged();  
+    
 
     }
 
     function showCiudades(){
+
+
         //obtiene las ciudades del model
         $ciudades = $this->model->getCiudades();
     
@@ -84,12 +87,13 @@ class CiudadController{
         $this->view->showInfoCiudades($ciudades);
     }
 
-    /**function checkLogged(){
+    //barrera de seguridad para administrador logeado
+    function checkLogged(){
         session_start();
         if(!isset($_SESSION['ID_USER']))   {
             header("Location: " . BASE_URL . "login");
             die();
-        }
-    }*/
+        }}
+
 
 }

@@ -48,12 +48,17 @@ switch ($params[0]) {
         $controller = new CiudadController();
         $controller-> showInfoCiudades($params[1]);
         break;
-    
-     case 'login':
+
+    case 'login':
         $controller = new AuthController();
         $controller-> showLogin();
-        break;
+        break;     
 
+    case 'auth':
+        $controller = new AuthController();
+        $controller-> auth();
+        break;
+    
     case 'editar':
         $controller = new EstacionController();
         $controller->modifyEstacion($params[1]);

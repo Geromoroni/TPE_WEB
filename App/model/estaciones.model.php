@@ -1,11 +1,12 @@
 <?php
+
+require_once "config.php";
 class EstacionModel{
      //abre la conexion con la base de datos
      private $db;
 
     function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=agencia_viaje;charset=utf8', 'root', '');
-    }
+        $this->db = new PDO('mysql:host='. MYSQL_HOST .';dbname='.MYSQL_DB.';charset=utf8', MYSQL_USER, MYSQL_PASS);    }
 
 
     /**
