@@ -24,9 +24,19 @@ switch ($params[0]) {
         $controller->addEstacion();
          break;    
 
+    case 'insertarCiudad':
+        $controller = new ciudadController();
+        $controller->addCiudad();
+         break;    
+
      case 'eliminar':
         $controller = new EstacionController();
         $controller->removeEstacion($params[1]);
+            break;
+    
+     case 'eliminarCiudad':
+        $controller = new CiudadController();
+        $controller->removeCiudad($params[1]);
             break;
     
     case 'ciudades':
@@ -36,7 +46,7 @@ switch ($params[0]) {
 
     case 'infoCiudad':
         $controller = new CiudadController();
-        $controller-> showInfoCiudades();
+        $controller-> showInfoCiudades($params[1]);
         break;
          
 

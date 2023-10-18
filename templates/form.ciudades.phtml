@@ -1,7 +1,14 @@
-<form action="insertar" method="POST" class="my-4">
+<form action="insertarCiudad" method="POST" class="my-4">
     <h3 class="text-center">Agrega el nombre de la ciudad</h3>
 <div class="input-group mx-auto p-2">
                 <input required name="nombre" type="text" class="form-control" >
-               <button type="submit" class="btn  btn-success" id="button-addon2">Agregar</button>
+                <input required name="info_ciudad" type="text" class="form-control" >
+                <select required name="id_estacion" class="form-control">
+                    <option value="1">Verano</option>
+                    <option value="2">Invierno</option>
+                    <option value="3">Otoño</option>
+                    <option value="4">Primavera</option>
+                </select>
+               <button type="submit" class="btn btn-success" id="button-addon2">Agregar</button>
         </div>
 </form>
