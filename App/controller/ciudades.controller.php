@@ -10,6 +10,9 @@ class CiudadController{
      function __construct(){
     $this->model= new CiudadModel();
     $this->view= new CiudadView();
+    
+    //verifico si el usuario esta logeado
+    $this->checkLogged();
 
     }
 
@@ -58,6 +61,14 @@ class CiudadController{
         //actualizo la vista
         $this->view->showInfoCiudades($ciudades);
     }
+
+    //barrera de seguridad para administrador logeado
+    function checkLogged(){
+        session_start();
+        if(!isset($_SESSION['ID_USER']))   {
+            header("Location: " . BASE_URL . "login");
+            die();
+        }}
 
 
 }

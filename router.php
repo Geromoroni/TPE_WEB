@@ -39,6 +39,11 @@ switch ($params[0]) {
         $controller-> showInfoCiudades();
         break;
          
+
+    case 'login':
+        $controller = new AuthController();
+        $controller-> showLogin();
+        break;
     default:
         header("Location: listar");
         break;

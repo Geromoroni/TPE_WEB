@@ -21,7 +21,7 @@ class AuthController {
     public function auth() {
         $email = $_POST['email'];
         $password = $_POST['password'];
-
+     
         if (empty($email) || empty($password)) {
             $this->view->showLogin('Faltan completar datos');
             return;
