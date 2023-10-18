@@ -64,7 +64,6 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller-> auth();
         break;
-<<<<<<< HEAD
 
     case 'logout':
         $controller = new AuthController();
@@ -72,14 +71,6 @@ switch ($params[0]) {
         break;  
 
 
-=======
-    
-    case 'editar':
-        $controller = new EstacionController();
-        $controller->modifyEstacion($params[1]);
-        break;
-        
->>>>>>> 8c3b8c9cab1383070bb9459076d9f6538e652985
     default:
         header("Location: login");
         break;
