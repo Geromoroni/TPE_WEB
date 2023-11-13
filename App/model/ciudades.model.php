@@ -39,6 +39,15 @@ class CiudadModel{
 
         return $this->db->lastInsertId();
     }
+    
+
+    function update($nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad) {
+        
+        $query = $this->db->prepare('UPDATE ciudades SET nombre_ciudad = ?, info_ciudad = ?, id_estacion = ? WHERE id = ?');
+
+        $query->execute([$nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad]);
+
+    }
 
 
     function deleteCiudad($id_ciudad) {

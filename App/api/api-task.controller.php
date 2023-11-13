@@ -4,7 +4,7 @@ require_once './App/api/api.view.php';
 
 class ApiTaskController{
     private $model;
-    private $view;
+    protected $view;
     private $data;
 
     function __construct() {
@@ -35,18 +35,7 @@ class ApiTaskController{
         }
     }
 
-    public function delete($params = null){
-        $idCiudad = $params[':ID'];
-        $success =  $this->model->deleteCiudad($idCiudad);
-        if ($success){
-            $this->view->response("La ciudad con el id=$idCiudad se borro exitosamente", 200);
-
-        }
-        else {
-            $this->view->response("La ciudad con el id=$idCiudad no existe", 404);
-
-        }
-    }
+    
 
     public function add($params = null){
         $body = $this->getData();
@@ -62,6 +51,39 @@ class ApiTaskController{
         }
         else {
             $this->view->response("No se pudo insertar", 500);
+
+        }
+    }
+
+    public function delete($params = null){
+        $idCiudad = $params[':ID'];
+        $success =  $this->model->deleteCiudad($idCiudad);
+        if ($success){
+            $this->view->response("La ciudad con el id=$idCiudad se borro exitosamente", 200);
+
+        }
+        else {
+            $this->view->response("La ciudad con el id=$idCiudad no existe", 404);
+
+        }
+    }
+
+    public function update($params = null){
+        $id_ciudad = $params[':ID'];
+        $ciudad = $this->model->getCiudades($id_ciudad);
+        if ($ciudad){
+            $body = $this->getData();
+
+            $nombre_ciudad=$body->nombre;
+            $info_ciudad  =$body->info_ciudad;
+            $id_estacion  =$body->id_estacion;
+    
+            $id = $this->model->update($nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad);
+            $this->view->response("La ciudad con el id=$id_ciudad ha sido modificadaexitosamente", 200);
+
+        }
+        else {
+            $this->view->response("La ciudad con el id=$id_ciudad no se pudo modificar", 404);
 
         }
     }
