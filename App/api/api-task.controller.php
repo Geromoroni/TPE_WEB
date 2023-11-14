@@ -18,7 +18,17 @@ class ApiTaskController{
     }
 
     public function getAll($params = null){
-        $ciudades = $this->model->getCiudades();
+
+        $parametros = [];
+        
+        if(isset($_GET['sort'])){
+            $parametros['sort'] = $_GET['sort'];
+        }
+        if(isset($_GET['order'])){
+            $parametros['order'] = $_GET['order'];
+        }
+
+        $ciudades = $this->model->getCiudades($parametros);
         $this->view->response($ciudades, 200);
         }
 
@@ -68,7 +78,7 @@ class ApiTaskController{
         }
     }
 
-    public function update($params = null){
+    public function update($params = []){
         $id_ciudad = $params[':ID'];
         $ciudad = $this->model->getCiudades($id_ciudad);
         if ($ciudad){
@@ -78,12 +88,12 @@ class ApiTaskController{
             $info_ciudad  =$body->info_ciudad;
             $id_estacion  =$body->id_estacion;
     
-            $id = $this->model->update($nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad);
+           $this->model->update($nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad);
             $this->view->response("La ciudad con el id=$id_ciudad ha sido modificadaexitosamente", 200);
 
         }
         else {
-            $this->view->response("La ciudad con el id=$id_ciudad no se pudo modificar", 404);
+            $this->view->response("La ciudad con el id= $id_ciudad no se pudo modificar", 404);
 
         }
     }

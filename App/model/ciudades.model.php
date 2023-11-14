@@ -11,8 +11,17 @@ class CiudadModel{
     /**
      * Obtiene y devuelve de la base de datos todas las ciudades.
      */
-    function getCiudades() {
-        $query = $this->db->prepare('SELECT * FROM ciudades');
+    function getCiudades($parametros) {
+        
+        $sql  = 'SELECT * FROM ciudades ';
+        if(isset($parametros['order'])){
+            $sql .= ' ORDER BY '.$parametros['order'];
+
+            if(isset($parametros['sort'])){
+                $sql .= ' '.$parametros['sort'];
+            }
+        }
+        $query = $this->db->prepare($sql);
         $query->execute();
 
         // $ciudades es un arreglo de tareas
@@ -41,11 +50,11 @@ class CiudadModel{
     }
     
 
-    function update($nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad) {
+    function update($nombre_ciudad, $info_ciudad, $id_estacion, $idCiudad) {
         
         $query = $this->db->prepare('UPDATE ciudades SET nombre_ciudad = ?, info_ciudad = ?, id_estacion = ? WHERE id = ?');
 
-        $query->execute([$nombre_ciudad, $info_ciudad, $id_estacion, $id_ciudad]);
+        $query->execute([$nombre_ciudad, $info_ciudad, $id_estacion, $idCiudad]);
 
     }
 

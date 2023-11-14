@@ -12,7 +12,8 @@ $router->addRoute('ciudades', 'GET', 'ApiTaskController', 'getAll');
 $router->addRoute('ciudades/:ID', 'GET', 'ApiTaskController', 'get');
 $router->addRoute('ciudades/:ID', 'DELETE', 'ApiTaskController', 'delete');
 $router->addRoute('ciudades', 'POST', 'ApiTaskController', 'add');
-$router->addRoute('api/ciudades/:ID', 'PUT', 'ApiTaskController', 'update');
+$router->addRoute('ciudades/:ID', 'PUT', 'ApiTaskController', 'update');
+$router->addRoute('ciudades/:ID/:subrecurso', 'GET', 'ApiTaskController', 'get');
 
 
 // rutea
